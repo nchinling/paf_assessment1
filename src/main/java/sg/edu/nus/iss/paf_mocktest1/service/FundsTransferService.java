@@ -17,4 +17,8 @@ public class FundsTransferService {
     public List<Account> getAllAccounts(){
         return acctRepo.getAllAccounts();
     }
+
+    public Account getAccountById(String accountId){
+        return acctRepo.getAccountById(accountId);
+    }
 }

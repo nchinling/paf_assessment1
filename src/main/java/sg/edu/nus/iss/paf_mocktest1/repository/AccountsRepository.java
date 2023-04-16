@@ -26,9 +26,17 @@ public class AccountsRepository {
             account.setAccountId(rs.getString("account_id"));
             account.setName(rs.getString("name"));
             account.setBalance(rs.getDouble("balance"));
-            // orderdetail.setDiscount(rs.getBigDecimal("discount"));
             return account; 
         });
+
+    }
+
+    
+    public Account getAccountById(String accountId){
+        List<Account> accounts = jdbcTemplate.query(SELECT_ACCOUNT_BY_ID, 
+        new AccountRowMapper() , new Object[]{accountId});
+        
+        return accounts.get(0);
 
     }
 

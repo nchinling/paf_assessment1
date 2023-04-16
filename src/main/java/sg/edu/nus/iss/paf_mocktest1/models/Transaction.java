@@ -84,22 +84,22 @@ public class Transaction {
         this.account = account;
     }
 
+    
+    public List<Account> getAccounts() {
+        return accounts;
+    }
+
+    public void setAccounts(List<Account> accounts) {
+        this.accounts = accounts;
+    }
+
+    
+
     @Override
     public String toString() {
         return "Transaction [fromAccount=" + fromAccount + ", toAccount=" + toAccount + ", amount=" + amount
                 + ", comment=" + comment + ", errorMessage=" + errorMessage + ", account=" + account + "]";
     }
 
-    
 
-
-    
-
-
-
-    
-
-    
-
-    
 }
