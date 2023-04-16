@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import sg.edu.nus.iss.paf_mocktest1.models.Account;
+import sg.edu.nus.iss.paf_mocktest1.models.Transaction;
 
 @Repository
 public class AccountsRepository {
@@ -39,6 +40,27 @@ public class AccountsRepository {
         return accounts.get(0);
 
     }
+
+    public boolean withdraw (Transaction transaction){
+        
+        String query = WITHDRAW_FROM_ACCOUNT;
+        
+        final int rowCount= jdbcTemplate.update(query,transaction.getAmount(), 
+                                                transaction.getFromAccount());
+ 
+        return rowCount> 0;
+        }
+    
+    public boolean deposit(Transaction transaction) {
+        String query = DEPOSIT_INTO_ACCOUNT;
+        final int rowCount= jdbcTemplate.update(query,transaction.getAmount(), 
+                                                transaction.getToAccount());
+
+        return rowCount> 0;
+    
+
+    }
+
 
 
 }

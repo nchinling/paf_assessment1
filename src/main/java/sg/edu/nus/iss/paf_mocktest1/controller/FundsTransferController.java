@@ -71,9 +71,19 @@ public class FundsTransferController {
 			throw new TransferException("Insufficient balance in account");
 		}
 
-		// m.addAttribute(ATTR_TRANSACTION, transaction);
+		//implement transaction
+		fundSvc.createTransaction(transaction);
 
-       return "view2";
+		
+        Account withdrawName = fundSvc.getAccountById(transaction.getFromAccount());
+		Account toName = fundSvc.getAccountById(transaction.getToAccount());
+
+		// model.addAttribute(ATTR_ITEM, new Item());
+		m.addAttribute ("withdrawName", withdrawName);
+		m.addAttribute ("toName", toName);
+		m.addAttribute(ATTR_TRANSACTION, transaction);
+
+       return "view1";
 
     }
 

@@ -10,6 +10,7 @@ public class Transaction {
     private Double amount;
     private String comment;
     private String errorMessage;
+    public String transactionId;
 
     private Account account;
     private List<Account> accounts = new ArrayList<Account>();
@@ -17,16 +18,19 @@ public class Transaction {
     public Transaction() {
     }
 
+    
     public Transaction(String fromAccount, String toAccount, Double amount, String comment, String errorMessage,
-            Account account, List<Account> accounts) {
+            String transactionId, Account account, List<Account> accounts) {
         this.fromAccount = fromAccount;
         this.toAccount = toAccount;
         this.amount = amount;
         this.comment = comment;
         this.errorMessage = errorMessage;
+        this.transactionId = transactionId;
         this.account = account;
         this.accounts = accounts;
     }
+
 
     public Transaction(String fromAccount, String toAccount, Double amount, String comment, String errorMessage) {
         this.fromAccount = fromAccount;
@@ -94,7 +98,17 @@ public class Transaction {
     }
 
     
+    public String getTransactionId() {
+        return transactionId;
+    }
 
+
+    public void setTransactionId(String transactionId) {
+        this.transactionId = transactionId;
+    }
+
+    
+    
     @Override
     public String toString() {
         return "Transaction [fromAccount=" + fromAccount + ", toAccount=" + toAccount + ", amount=" + amount

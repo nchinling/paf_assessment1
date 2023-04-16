@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transfer status</title>
+</head>
+ <body data-th-object="${transaction}">
+    
+    <p>Your transfer of <span th:text="'$' + *{amount}"></span> 
+    from <span th:text="${withdrawName.name}"></span> <span th:text= "'('+*{fromAccount}+')'"> 
+    </span>
+    to <span th:text="${toName.name}"></span> <span th:text= "'('+*{toAccount}+')'"> 
+    </span> was successful.  
+    </p>
+
+    <br>
+
+    <p>Transaction ID is <span th:text = *{transactionId}></span></p>
+
+
+</body> 
+
+</html>
+
+<!-- <option th:value="${account.accountId}" th:text="'('+${account.name}+') '+${account.accountId}"></option> -->
